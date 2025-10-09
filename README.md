@@ -94,7 +94,7 @@ Each layer was built as a static SQL pipeline in BigQuery using  CTEs, joins, an
 ## Dashboard
 
 
-#### [Tableau Dashboard](https://public.tableau.com/app/profile/ankit.walimbe1984/viz/Olist-ecommerce/OlistE-Commerce?publish=yes)
+#### [Tableau Dashboard](https://public.tableau.com/app/profile/ankit.walimbe1984/viz/CustomerCohort-Olist/UnderstandingCustomerRetentionPatternsinanE-CommerceBusiness)
 
 
 ---
@@ -200,8 +200,11 @@ customer_cohort/
 ## Author 
 
 **Ankit Walimbe** - Munich, Germany
+
 *Data Analsyt | Data Engineer Enthusiast*
+
 LinkedIn : linkedin.com/in/AnkitWalimbe
+
 GitHub : github.com/AnkitWalimbe
 
 ---
