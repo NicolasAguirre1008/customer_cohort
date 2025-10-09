@@ -1,0 +1,2634 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20251.25.0415.1018                               -->
+<workbook original-version='18.1' source-build='2025.1.1 (20251.25.0415.1018)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MapboxVectorStylesAndLayers />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='CustomerCohort-Olist' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+        <calculation class='tableau' formula='5' />
+        <members>
+          <member value='5' />
+          <member value='10' />
+          <member value='15' />
+          <member value='20' />
+        </members>
+      </column>
+      <column caption='Ranking Direction' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+        <calculation class='tableau' formula='&quot;Bottom&quot;' />
+        <members>
+          <member value='&quot;Top&quot;' />
+          <member value='&quot;Bottom&quot;' />
+        </members>
+      </column>
+      <column caption='Top N Products' datatype='integer' name='[Parameter 3]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+        <calculation class='tableau' formula='5' />
+        <members>
+          <member value='5' />
+          <member value='10' />
+          <member value='20' />
+          <member value='50' />
+          <member value='100' />
+        </members>
+      </column>
+      <column caption='Top/Bottom Products' datatype='string' name='[Parameter 4]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+        <calculation class='tableau' formula='&quot;Bottom&quot;' />
+        <members>
+          <member value='&quot;Top&quot;' />
+          <member value='&quot;Bottom&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='mart_cohort_retention_by_category' inline='true' name='federated.0a0ld3o1xu8ovy17cd82s00toa7g' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mart_cohort_retention_by_category' name='textscan.0umdqhg0qw0pjb111vxw31j4pbp1'>
+            <connection class='textscan' directory='/Users/ankitwalimbe/DA_Projects/customer_cohort/exports' filename='mart_cohort_retention_by_category.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0umdqhg0qw0pjb111vxw31j4pbp1' name='mart_cohort_retention_by_category.csv' table='[mart_cohort_retention_by_category#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+            <column datatype='date' name='first_order_month' ordinal='0' />
+            <column datatype='integer' name='months_since' ordinal='1' />
+            <column datatype='string' name='product_category_name' ordinal='2' />
+            <column datatype='integer' name='n_cohort' ordinal='3' />
+            <column datatype='integer' name='n_active' ordinal='4' />
+            <column datatype='real' name='retention_pct' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>first_order_month</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[first_order_month]</local-name>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias>first_order_month</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>months_since</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[months_since]</local-name>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias>months_since</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_category_name]</local-name>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias>product_category_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>n_cohort</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[n_cohort]</local-name>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias>n_cohort</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>n_active</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[n_active]</local-name>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias>n_active</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retention_pct</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[retention_pct]</local-name>
+            <parent-name>[mart_cohort_retention_by_category.csv]</parent-name>
+            <remote-alias>retention_pct</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Top/Bottom Filter' datatype='boolean' name='[Calculation_507569813670240257]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Parameters].[Parameter 4] = &apos;Top&apos; THEN&#10;    INDEX() &lt;= [Parameters].[Parameter 3]&#10;ELSE&#10;    INDEX() &gt;= SIZE() - [Parameters].[Parameter 3] + 1&#10;END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='mart_cohort_retention_by_category.csv' datatype='table' name='[__tableau_internal_object_id__].[mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854]' role='measure' type='quantitative' />
+      <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+      <column caption='Months Since' datatype='integer' name='[months_since]' role='measure' type='quantitative' />
+      <column caption='N Active' datatype='integer' name='[n_active]' role='measure' type='quantitative' />
+      <column caption='N Cohort' datatype='integer' name='[n_cohort]' role='measure' type='quantitative' />
+      <column caption='Product Category Name' datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+      <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+      <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+      <group caption='Action (MY(First Order Month),Product Category Name)' hidden='true' name='[Action (MY(First Order Month),Product Category Name)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[my:first_order_month:ok]' />
+          <groupfilter function='level-members' level='[product_category_name]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Product Category Name)' hidden='true' name='[Action (Product Category Name)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[product_category_name]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/tableau-temp/#TableauTemp_0fwerf11n4z39217jold907insu7.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='10/08/2025 04:06:22 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>first_order_month</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[first_order_month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>first_order_month</remote-alias>
+              <ordinal>0</ordinal>
+              <family>mart_cohort_retention_by_category.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>months_since</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[months_since]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>months_since</remote-alias>
+              <ordinal>1</ordinal>
+              <family>mart_cohort_retention_by_category.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_category_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_category_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>product_category_name</remote-alias>
+              <ordinal>2</ordinal>
+              <family>mart_cohort_retention_by_category.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>73</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>n_cohort</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[n_cohort]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>n_cohort</remote-alias>
+              <ordinal>3</ordinal>
+              <family>mart_cohort_retention_by_category.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>278</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>n_active</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[n_active]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>n_active</remote-alias>
+              <ordinal>4</ordinal>
+              <family>mart_cohort_retention_by_category.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>217</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>retention_pct</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[retention_pct]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>retention_pct</remote-alias>
+              <ordinal>5</ordinal>
+              <family>mart_cohort_retention_by_category.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>354</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:product_category_name:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;automotivo&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;eletrodomesticos&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;livros_interesse_geral&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;sinalizacao_e_seguranca&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;agro_industria_e_comercio&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;consoles_games&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;ferramentas_jardim&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;pc_gamer&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;artes_e_artesanato&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;construcao_ferramentas_jardim&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;informatica_acessorios&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;portateis_casa_forno_e_cafe&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;brinquedos&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;esporte_lazer&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;moveis_colchao_e_estofado&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;utilidades_domesticas&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;bebes&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;eletrodomesticos_2&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;livros_tecnicos&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;tablets_impressao_imagem&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;artigos_de_festas&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;construcao_ferramentas_seguranca&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;instrumentos_musicais&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;portateis_cozinha_e_preparadores_de_alimentos&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;cine_foto&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;fashion_roupa_masculina&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;musica&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;alimentos&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;construcao_ferramentas_construcao&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;flores&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;pcs&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;casa_construcao&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;fashion_roupa_feminina&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;moveis_quarto&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;artigos_de_natal&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;cool_stuff&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;la_cuisine&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;relogios_presentes&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;cama_mesa_banho&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;fashion_bolsas_e_acessorios&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;moveis_cozinha_area_de_servico_jantar_e_jardim&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;casa_conforto&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;fashion_calcados&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;moveis_decoracao&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;cds_dvds_musicais&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;fashion_roupa_infanto_juvenil&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;moveis_sala&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;climatizacao&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;fashion_underwear_e_moda_praia&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;papelaria&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;bebidas&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;eletronicos&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;malas_acessorios&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;telefonia&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;audio&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;dvds_blu_ray&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;livros_importados&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;seguros_e_servicos&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;alimentos_bebidas&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;construcao_ferramentas_ferramentas&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;fraldas_higiene&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;perfumaria&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;casa_conforto_2&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;fashion_esporte&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;moveis_escritorio&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;beleza_saude&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;eletroportateis&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;market_place&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;telefonia_fixa&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;artes&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;construcao_ferramentas_iluminacao&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;industria_comercio_e_negocios&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;pet_shop&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N Products' datatype='integer' name='[Parameter 3]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+        </column>
+        <column caption='Top/Bottom Products' datatype='string' name='[Parameter 4]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+          <calculation class='tableau' formula='&quot;Bottom&quot;' />
+        </column>
+      </datasource-dependencies>
+      <object-graph>
+        <objects>
+          <object caption='mart_cohort_retention_by_category.csv' id='mart_cohort_retention_by_category.csv_53FA7FBA9CE240879C0C2ED229697854'>
+            <properties context=''>
+              <relation connection='textscan.0umdqhg0qw0pjb111vxw31j4pbp1' name='mart_cohort_retention_by_category.csv' table='[mart_cohort_retention_by_category#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                  <column datatype='date' name='first_order_month' ordinal='0' />
+                  <column datatype='integer' name='months_since' ordinal='1' />
+                  <column datatype='string' name='product_category_name' ordinal='2' />
+                  <column datatype='integer' name='n_cohort' ordinal='3' />
+                  <column datatype='integer' name='n_active' ordinal='4' />
+                  <column datatype='real' name='retention_pct' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='mart_cohort_retention_by_state' inline='true' name='federated.0xcz5ss1mksth61eysi8z09dp41t' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mart_cohort_retention_by_state' name='textscan.03clt7y0uvx3ty1en0ajq1uq5xct'>
+            <connection class='textscan' directory='/Users/ankitwalimbe/DA_Projects/customer_cohort/exports' filename='mart_cohort_retention_by_state.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.03clt7y0uvx3ty1en0ajq1uq5xct' name='mart_cohort_retention_by_state.csv' table='[mart_cohort_retention_by_state#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+            <column datatype='date' name='first_order_month' ordinal='0' />
+            <column datatype='integer' name='months_since' ordinal='1' />
+            <column datatype='string' name='cohort_state' ordinal='2' />
+            <column datatype='integer' name='n_active' ordinal='3' />
+            <column datatype='integer' name='n_cohort' ordinal='4' />
+            <column datatype='real' name='retention_pct' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>first_order_month</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[first_order_month]</local-name>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias>first_order_month</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>months_since</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[months_since]</local-name>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias>months_since</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cohort_state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[cohort_state]</local-name>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias>cohort_state</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>n_active</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[n_active]</local-name>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias>n_active</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>n_cohort</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[n_cohort]</local-name>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias>n_cohort</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retention_pct</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[retention_pct]</local-name>
+            <parent-name>[mart_cohort_retention_by_state.csv]</parent-name>
+            <remote-alias>retention_pct</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Top-Bottom N' datatype='boolean' name='[Calculation_507569813642547200]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Parameters].[Parameter 2] = &apos;Top&apos; THEN&#10;    INDEX() &lt;= [Parameters].[Parameter 1]&#10;ELSE&#10;    INDEX() &gt;= SIZE() - [Parameters].[Parameter 1] + 1&#10;END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='mart_cohort_retention_by_state.csv' datatype='table' name='[__tableau_internal_object_id__].[mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A]' role='measure' type='quantitative' />
+      <column caption='Cohort State' datatype='string' name='[cohort_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+      <column caption='Months Since' datatype='integer' name='[months_since]' role='measure' type='quantitative' />
+      <column caption='N Active' datatype='integer' name='[n_active]' role='measure' type='quantitative' />
+      <column caption='N Cohort' datatype='integer' name='[n_cohort]' role='measure' type='quantitative' />
+      <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+      <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[cohort_state]' derivation='None' name='[none:cohort_state:nk]' pivot='key' type='nominal' />
+      <group caption='Action (Cohort State)' hidden='true' name='[Action (Cohort State)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[cohort_state]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Cohort State,MY(First Order Month))' hidden='true' name='[Action (Cohort State,MY(First Order Month))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[cohort_state]' />
+          <groupfilter function='level-members' level='[my:first_order_month:ok]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/tableau-temp/#TableauTemp_11dtalj1os4ji71292v7b09vmeoh.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='10/08/2025 04:12:09 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>first_order_month</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[first_order_month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>first_order_month</remote-alias>
+              <ordinal>0</ordinal>
+              <family>mart_cohort_retention_by_state.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>22</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>months_since</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[months_since]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>months_since</remote-alias>
+              <ordinal>1</ordinal>
+              <family>mart_cohort_retention_by_state.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cohort_state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[cohort_state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>cohort_state</remote-alias>
+              <ordinal>2</ordinal>
+              <family>mart_cohort_retention_by_state.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>27</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>n_active</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[n_active]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>n_active</remote-alias>
+              <ordinal>3</ordinal>
+              <family>mart_cohort_retention_by_state.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>207</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>n_cohort</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[n_cohort]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>n_cohort</remote-alias>
+              <ordinal>4</ordinal>
+              <family>mart_cohort_retention_by_state.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>218</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>retention_pct</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[retention_pct]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>retention_pct</remote-alias>
+              <ordinal>5</ordinal>
+              <family>mart_cohort_retention_by_state.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>317</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:cohort_state:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;GO&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;AC&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;RO&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;BA&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;SE&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;MT&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;MA&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;CE&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;SP&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;RJ&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;AL&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;RR&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;PI&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;DF&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;TO&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;PA&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;PB&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;PR&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;RN&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;MG&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;ES&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;AM&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;RS&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;PE&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;MS&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;AP&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;SC&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Brazil&quot;' />
+        <semantic-value key='[State].[Name]' value='%null%' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+        </column>
+        <column caption='Ranking Direction' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+          <calculation class='tableau' formula='&quot;Bottom&quot;' />
+        </column>
+      </datasource-dependencies>
+      <object-graph>
+        <objects>
+          <object caption='mart_cohort_retention_by_state.csv' id='mart_cohort_retention_by_state.csv_62221611D2674D4790FAC65A4CC6786A'>
+            <properties context=''>
+              <relation connection='textscan.03clt7y0uvx3ty1en0ajq1uq5xct' name='mart_cohort_retention_by_state.csv' table='[mart_cohort_retention_by_state#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                  <column datatype='date' name='first_order_month' ordinal='0' />
+                  <column datatype='integer' name='months_since' ordinal='1' />
+                  <column datatype='string' name='cohort_state' ordinal='2' />
+                  <column datatype='integer' name='n_active' ordinal='3' />
+                  <column datatype='integer' name='n_cohort' ordinal='4' />
+                  <column datatype='real' name='retention_pct' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='mart_cohort_retention' inline='true' name='federated.18le7w80xj7b0s117zlp11md8lr6' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mart_cohort_retention' name='textscan.19l6k121g5jey51232b670b39bz0'>
+            <connection class='textscan' directory='/Users/ankitwalimbe/DA_Projects/customer_cohort/exports' filename='mart_cohort_retention.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.19l6k121g5jey51232b670b39bz0' name='mart_cohort_retention.csv' table='[mart_cohort_retention#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+            <column datatype='date' name='first_order_month' ordinal='0' />
+            <column datatype='integer' name='months_since' ordinal='1' />
+            <column datatype='integer' name='n_cohort' ordinal='2' />
+            <column datatype='integer' name='n_active' ordinal='3' />
+            <column datatype='real' name='retention_pct' ordinal='4' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[mart_cohort_retention.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>first_order_month</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[first_order_month]</local-name>
+            <parent-name>[mart_cohort_retention.csv]</parent-name>
+            <remote-alias>first_order_month</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>months_since</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[months_since]</local-name>
+            <parent-name>[mart_cohort_retention.csv]</parent-name>
+            <remote-alias>months_since</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>n_cohort</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[n_cohort]</local-name>
+            <parent-name>[mart_cohort_retention.csv]</parent-name>
+            <remote-alias>n_cohort</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>n_active</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[n_active]</local-name>
+            <parent-name>[mart_cohort_retention.csv]</parent-name>
+            <remote-alias>n_active</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retention_pct</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[retention_pct]</local-name>
+            <parent-name>[mart_cohort_retention.csv]</parent-name>
+            <remote-alias>retention_pct</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='mart_cohort_retention.csv' datatype='table' name='[__tableau_internal_object_id__].[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]' role='measure' type='quantitative' />
+      <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Months Since' datatype='integer' name='[months_since]' role='dimension' type='ordinal' />
+      <column caption='N Active' datatype='integer' name='[n_active]' role='measure' type='quantitative' />
+      <column caption='N Cohort' datatype='integer' name='[n_cohort]' role='measure' type='quantitative' />
+      <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+      <column-instance column='[first_order_month]' derivation='Quarter' name='[qr:first_order_month:ok]' pivot='key' type='ordinal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/tableau-temp/#TableauTemp_1hxaj081ecvvoo12012b60fnipyo.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='10/08/2025 08:45:17 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>first_order_month</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[first_order_month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>first_order_month</remote-alias>
+              <ordinal>0</ordinal>
+              <family>mart_cohort_retention.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>22</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>months_since</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[months_since]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>months_since</remote-alias>
+              <ordinal>1</ordinal>
+              <family>mart_cohort_retention.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>n_cohort</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[n_cohort]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>n_cohort</remote-alias>
+              <ordinal>2</ordinal>
+              <family>mart_cohort_retention.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>22</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>n_active</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[n_active]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>n_active</remote-alias>
+              <ordinal>3</ordinal>
+              <family>mart_cohort_retention.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>52</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>retention_pct</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[retention_pct]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>retention_pct</remote-alias>
+              <ordinal>4</ordinal>
+              <family>mart_cohort_retention.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>126</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[qr:first_order_month:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>3</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>2</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='mart_cohort_retention.csv' id='mart_cohort_retention.csv_BEEB6935E32146C086C2F2087F8FD706'>
+            <properties context=''>
+              <relation connection='textscan.19l6k121g5jey51232b670b39bz0' name='mart_cohort_retention.csv' table='[mart_cohort_retention#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                  <column datatype='date' name='first_order_month' ordinal='0' />
+                  <column datatype='integer' name='months_since' ordinal='1' />
+                  <column datatype='integer' name='n_cohort' ordinal='2' />
+                  <column datatype='integer' name='n_active' ordinal='3' />
+                  <column datatype='real' name='retention_pct' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_3947B1A6E394468DB15E050B41CD0400]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Product Category  Retention Treemap and Trend' type='sheet' worksheet='Retention Trend by Product Category' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Product Category  Retention Treemap and Trend' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_63546F5C3CFC4679B007AAB28EF0E022]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Product Category  Retention Treemap and Trend' type='sheet' worksheet='Product Category retention % treemap' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Product Category  Retention Treemap and Trend' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_8D9059D52091401489C10BA64E92964C]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Regional Retention &amp; Customer Activity' type='sheet' worksheet='Retention % per State' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Regional Retention &amp; Customer Activity' />
+      </command>
+    </action>
+    <action caption='Filter 4 (generated)' name='[Action4_C4A9B20AB7E44615A28186332143A12C]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Regional Retention &amp; Customer Activity' type='sheet' worksheet='Aquisition vs Active Customer by State' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Regional Retention &amp; Customer Activity' />
+      </command>
+    </action>
+    <action caption='Filter 5 (generated)' name='[Action5_A9E9132905E54776BEE4B9063D06C849]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Retention Heatmap and Trend over time' type='sheet' worksheet='Retention % Trend over time by State' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Retention Heatmap and Trend over time' />
+      </command>
+    </action>
+    <action caption='Filter 6 (generated)' name='[Action6_BEAEC12D986945F1BE7E89E3810A6FCE]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Retention Heatmap and Trend over time' type='sheet' worksheet='Retention % Heatmap by State' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Retention Heatmap and Trend over time' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Aquisition vs Active Customer by State'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention_by_state' name='federated.0xcz5ss1mksth61eysi8z09dp41t' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+              <calculation class='tableau' formula='5' />
+            </column>
+            <column caption='Ranking Direction' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+              <calculation class='tableau' formula='&quot;Bottom&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0xcz5ss1mksth61eysi8z09dp41t'>
+            <column caption='Top-Bottom N' datatype='boolean' name='[Calculation_507569813642547200]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Parameters].[Parameter 2] = &apos;Top&apos; THEN&#10;    INDEX() &lt;= [Parameters].[Parameter 1]&#10;ELSE&#10;    INDEX() &gt;= SIZE() - [Parameters].[Parameter 1] + 1&#10;END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[n_active]' derivation='Avg' name='[avg:n_active:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[n_cohort]' derivation='Avg' name='[avg:n_cohort:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='Cohort State' datatype='string' name='[cohort_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column caption='N Active' datatype='integer' name='[n_active]' role='measure' type='quantitative' />
+            <column caption='N Cohort' datatype='integer' name='[n_cohort]' role='measure' type='quantitative' />
+            <column-instance column='[cohort_state]' derivation='None' name='[none:cohort_state:nk]' pivot='key' type='nominal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_507569813642547200]' derivation='User' name='[usr:Calculation_507569813642547200:nk:2]' pivot='key' type='nominal'>
+              <table-calc ordering-field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[cohort_state]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State)]'>
+            <groupfilter function='level-members' level='[cohort_state]' user:ui-action-filter='[Action3_8D9059D52091401489C10BA64E92964C]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[usr:Calculation_507569813642547200:nk:2]'>
+            <groupfilter function='member' level='[usr:Calculation_507569813642547200:nk:2]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0xcz5ss1mksth61eysi8z09dp41t].[usr:Calculation_507569813642547200:nk:2]</column>
+            <column>[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:n_active:qk]' field-type='quantitative' scale='log' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:n_cohort:qk]' field-type='quantitative' scale='log' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&#10;&lt;</run>
+                <run>[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:n_active:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&#10;&lt;</run>
+                <run>[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:n_cohort:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&#10;&lt;</run>
+                <run>[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:n_active:qk] + [federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:n_cohort:qk])</rows>
+        <cols>[federated.0xcz5ss1mksth61eysi8z09dp41t].[my:first_order_month:ok]</cols>
+      </table>
+      <simple-id uuid='{4CD3C2C8-2B5D-4771-B0B5-F116B65EE2B0}' />
+    </worksheet>
+    <worksheet name='Cohort Retention'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention' name='federated.18le7w80xj7b0s117zlp11md8lr6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.18le7w80xj7b0s117zlp11md8lr6'>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Sum' caption='Months Since' datatype='integer' name='[months_since]' role='dimension' type='ordinal' />
+            <column-instance column='[months_since]' derivation='None' name='[none:months_since:ok]' pivot='key' type='ordinal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' field-type='quantitative' scale='log' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]</rows>
+        <cols>[federated.18le7w80xj7b0s117zlp11md8lr6].[none:months_since:ok]</cols>
+      </table>
+      <simple-id uuid='{4840D0ED-EF25-471E-BCEE-2C0507C12759}' />
+    </worksheet>
+    <worksheet name='Product Category retention % treemap'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention_by_category' name='federated.0a0ld3o1xu8ovy17cd82s00toa7g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0a0ld3o1xu8ovy17cd82s00toa7g'>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+            <column caption='Product Category Name' datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[Action (MY(First Order Month),Product Category Name)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_3947B1A6E394468DB15E050B41CD0400]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[my:first_order_month:ok]' />
+              <groupfilter function='level-members' level='[product_category_name]' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[Action (MY(First Order Month),Product Category Name)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' value='p0.00%' />
+            <format attr='height' value='441' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' max='1.0' min='0.16215932346937192' palette='orange_blue_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' />
+              <size column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' />
+              <text column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]' />
+              <text column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='color' value='#000000' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{736C8E25-E108-4BE4-8BD9-99A5F2D7D8A1}' />
+    </worksheet>
+    <worksheet name='Retention % Heatmap by State'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention_by_state' name='federated.0xcz5ss1mksth61eysi8z09dp41t' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xcz5ss1mksth61eysi8z09dp41t'>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='Cohort State' datatype='string' name='[cohort_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[cohort_state]' derivation='None' name='[none:cohort_state:nk]' pivot='key' type='nominal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State,MY(First Order Month))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action5_A9E9132905E54776BEE4B9063D06C849]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[cohort_state]' />
+              <groupfilter function='level-members' level='[my:first_order_month:ok]' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State,MY(First Order Month))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' value='p0.00%' />
+            <format attr='font-size' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' value='8' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' scope='rows' value='#ffffff' />
+            <format attr='color' data-class='subtotal' scope='rows' value='#ffffff' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.5309009679821296' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' max='1.0' min='0.061801935964259112' type='interpolated' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='background-color' data-class='subtotal' scope='rows' value='#00000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+              <lod column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]</rows>
+        <cols>[federated.0xcz5ss1mksth61eysi8z09dp41t].[my:first_order_month:ok]</cols>
+      </table>
+      <simple-id uuid='{FE2E9C3E-6CDD-42C8-A09B-70C2E41BFCD1}' />
+    </worksheet>
+    <worksheet name='Retention % Trend over time by State'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention_by_state' name='federated.0xcz5ss1mksth61eysi8z09dp41t' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+              <calculation class='tableau' formula='5' />
+            </column>
+            <column caption='Ranking Direction' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+              <calculation class='tableau' formula='&quot;Bottom&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0xcz5ss1mksth61eysi8z09dp41t'>
+            <column caption='Top-Bottom N' datatype='boolean' name='[Calculation_507569813642547200]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Parameters].[Parameter 2] = &apos;Top&apos; THEN&#10;    INDEX() &lt;= [Parameters].[Parameter 1]&#10;ELSE&#10;    INDEX() &gt;= SIZE() - [Parameters].[Parameter 1] + 1&#10;END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='Cohort State' datatype='string' name='[cohort_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[cohort_state]' derivation='None' name='[none:cohort_state:nk]' pivot='key' type='nominal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_507569813642547200]' derivation='User' name='[usr:Calculation_507569813642547200:nk:2]' pivot='key' type='nominal'>
+              <table-calc ordering-field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[cohort_state]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State,MY(First Order Month))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action6_BEAEC12D986945F1BE7E89E3810A6FCE]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[cohort_state]' />
+              <groupfilter function='level-members' level='[my:first_order_month:ok]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[usr:Calculation_507569813642547200:nk:2]'>
+            <groupfilter function='member' level='[usr:Calculation_507569813642547200:nk:2]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0xcz5ss1mksth61eysi8z09dp41t].[usr:Calculation_507569813642547200:nk:2]</column>
+            <column>[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State,MY(First Order Month))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]</rows>
+        <cols>[federated.0xcz5ss1mksth61eysi8z09dp41t].[my:first_order_month:ok]</cols>
+      </table>
+      <simple-id uuid='{F871D2F3-2452-4BBE-92B6-1E7F1ED58F7F}' />
+    </worksheet>
+    <worksheet name='Retention % per State'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention_by_state' name='federated.0xcz5ss1mksth61eysi8z09dp41t' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0xcz5ss1mksth61eysi8z09dp41t'>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='Cohort State' datatype='string' name='[cohort_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[cohort_state]' derivation='None' name='[none:cohort_state:nk]' pivot='key' type='nominal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State,MY(First Order Month))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action4_C4A9B20AB7E44615A28186332143A12C]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[cohort_state]' />
+              <groupfilter function='level-members' level='[my:first_order_month:ok]' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0xcz5ss1mksth61eysi8z09dp41t].[Action (Cohort State,MY(First Order Month))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Longitude (generated)]' field-type='quantitative' max='3325580.1752355006' min='-14853572.278035266' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Latitude (generated)]' field-type='quantitative' max='685742.47219224181' min='-3984485.8126343326' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' palette='orange_blue_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <text column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' />
+              <lod column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[none:cohort_state:nk]' />
+              <geometry column='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xcz5ss1mksth61eysi8z09dp41t].[Latitude (generated)]</rows>
+        <cols>[federated.0xcz5ss1mksth61eysi8z09dp41t].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{6F209387-C9DE-45A6-80CA-41DB15204F92}' />
+    </worksheet>
+    <worksheet name='Retention % trend by Year-Quarter'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention' name='federated.18le7w80xj7b0s117zlp11md8lr6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.18le7w80xj7b0s117zlp11md8lr6'>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' caption='Months Since' datatype='integer' name='[months_since]' role='dimension' type='ordinal' />
+            <column-instance column='[months_since]' derivation='None' name='[none:months_since:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[first_order_month]' derivation='Quarter' name='[qr:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+            <column-instance column='[first_order_month]' derivation='Year' name='[yr:first_order_month:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' field-type='quantitative' scale='log' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.18le7w80xj7b0s117zlp11md8lr6].[qr:first_order_month:ok]' />
+              <text column='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]</rows>
+        <cols>([federated.18le7w80xj7b0s117zlp11md8lr6].[yr:first_order_month:ok] * [federated.18le7w80xj7b0s117zlp11md8lr6].[none:months_since:qk])</cols>
+      </table>
+      <simple-id uuid='{D5EA4E0B-A0DF-44D4-8C11-2711CB360ED6}' />
+    </worksheet>
+    <worksheet name='Retention Trend by Product Category'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Retention Trend by Product Category</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention_by_category' name='federated.0a0ld3o1xu8ovy17cd82s00toa7g' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N Products' datatype='integer' name='[Parameter 3]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+              <calculation class='tableau' formula='5' />
+            </column>
+            <column caption='Top/Bottom Products' datatype='string' name='[Parameter 4]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+              <calculation class='tableau' formula='&quot;Bottom&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0a0ld3o1xu8ovy17cd82s00toa7g'>
+            <column caption='Top/Bottom Filter' datatype='boolean' name='[Calculation_507569813670240257]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Parameters].[Parameter 4] = &apos;Top&apos; THEN&#10;    INDEX() &lt;= [Parameters].[Parameter 3]&#10;ELSE&#10;    INDEX() &gt;= SIZE() - [Parameters].[Parameter 3] + 1&#10;END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+            <column caption='Product Category Name' datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_507569813670240257]' derivation='User' name='[usr:Calculation_507569813670240257:nk:2]' pivot='key' type='nominal'>
+              <table-calc ordering-field='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[product_category_name]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[Action (Product Category Name)]'>
+            <groupfilter function='level-members' level='[product_category_name]' user:ui-action-filter='[Action2_63546F5C3CFC4679B007AAB28EF0E022]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]'>
+            <groupfilter function='level-members' level='[none:product_category_name:nk]' />
+          </filter>
+          <filter class='categorical' column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[usr:Calculation_507569813670240257:nk:2]'>
+            <groupfilter function='member' level='[usr:Calculation_507569813670240257:nk:2]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[usr:Calculation_507569813670240257:nk:2]</column>
+            <column>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[Action (Product Category Name)]</column>
+            <column>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]' />
+              <text column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]</rows>
+        <cols>[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[my:first_order_month:ok]</cols>
+      </table>
+      <simple-id uuid='{97E98C76-61D4-4535-987A-645DC07539D5}' />
+    </worksheet>
+    <worksheet name='Retention% trend over time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mart_cohort_retention' name='federated.18le7w80xj7b0s117zlp11md8lr6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.18le7w80xj7b0s117zlp11md8lr6'>
+            <column-instance column='[retention_pct]' derivation='Avg' name='[avg:retention_pct:qk]' pivot='key' type='quantitative' />
+            <column caption='First Order Month' datatype='date' name='[first_order_month]' role='dimension' type='ordinal' />
+            <column-instance column='[first_order_month]' derivation='MY' name='[my:first_order_month:ok]' pivot='key' type='ordinal' />
+            <column caption='Retention Pct' datatype='real' name='[retention_pct]' role='measure' type='quantitative' />
+            <column-instance column='[first_order_month]' derivation='Year' name='[yr:first_order_month:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' value='p0.00%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.18le7w80xj7b0s117zlp11md8lr6].[yr:first_order_month:ok]' />
+              <text column='[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.18le7w80xj7b0s117zlp11md8lr6].[avg:retention_pct:qk]</rows>
+        <cols>[federated.18le7w80xj7b0s117zlp11md8lr6].[my:first_order_month:ok]</cols>
+      </table>
+      <simple-id uuid='{CA5D0E56-D86E-40F2-A05F-94A43A0D19BB}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Customer Retention Overview'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98312' id='8' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+            <zone h='98312' id='6' type-v2='layout-basic' w='99156' x='422' y='844' />
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='40295' id='3' name='Cohort Retention' w='99707' x='176' y='527' />
+        <zone h='58333' id='5' name='Retention % trend by Year-Quarter' w='47630' x='0' y='41561' />
+        <zone h='59494' id='10' name='Retention% trend over time' w='52311' x='47689' y='40295' />
+        <zone h='10865' id='9' name='Retention % trend by Year-Quarter' pane-specification-id='0' param='[federated.18le7w80xj7b0s117zlp11md8lr6].[qr:first_order_month:ok]' type-v2='color' w='4224' x='43242' y='50422' />
+        <zone h='8228' id='11' name='Retention% trend over time' pane-specification-id='0' param='[federated.18le7w80xj7b0s117zlp11md8lr6].[yr:first_order_month:ok]' type-v2='color' w='10474' x='87068' y='46414' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1000' minheight='1000' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='15' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98312' id='14' param='vert' type-v2='layout-flow' w='99064' x='468' y='844'>
+                <zone fixed-size='280' h='40295' id='3' is-fixed='true' name='Cohort Retention' w='99707' x='176' y='527'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='59494' id='10' is-fixed='true' name='Retention% trend over time' w='52311' x='47689' y='40295'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8228' id='11' name='Retention% trend over time' pane-specification-id='0' param='[federated.18le7w80xj7b0s117zlp11md8lr6].[yr:first_order_month:ok]' type-v2='color' w='10474' x='87068' y='46414'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='58333' id='5' is-fixed='true' name='Retention % trend by Year-Quarter' w='47630' x='0' y='41561'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10865' id='9' name='Retention % trend by Year-Quarter' pane-specification-id='0' param='[federated.18le7w80xj7b0s117zlp11md8lr6].[qr:first_order_month:ok]' type-v2='color' w='4224' x='43242' y='50422'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4C1337CE-B050-430E-911C-813ACF663914}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Product Category  Retention Treemap and Trend'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N Products' datatype='integer' name='[Parameter 3]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+          <members>
+            <member value='5' />
+            <member value='10' />
+            <member value='20' />
+            <member value='50' />
+            <member value='100' />
+          </members>
+        </column>
+        <column caption='Top/Bottom Products' datatype='string' name='[Parameter 4]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+          <calculation class='tableau' formula='&quot;Bottom&quot;' />
+          <members>
+            <member value='&quot;Top&quot;' />
+            <member value='&quot;Bottom&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98312' id='11' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+            <zone h='98312' id='7' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+              <zone h='98312' id='5' type-v2='layout-basic' w='99156' x='422' y='844' />
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='51688' id='3' name='Product Category retention % treemap' w='99472' x='211' y='633' />
+        <zone h='4430' id='8' name='Product Category retention % treemap' pane-specification-id='0' param='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' type-v2='color' w='12196' x='69324' y='1266' />
+        <zone h='47996' id='9' name='Retention Trend by Product Category' w='98888' x='468' y='51899' />
+        <zone h='4641' id='12' mode='compact' param='[Parameters].[Parameter 3]' type-v2='paramctrl' w='9362' x='84728' y='51793' />
+        <zone h='4641' id='13' mode='compact' param='[Parameters].[Parameter 4]' type-v2='paramctrl' w='9362' x='75307' y='51793' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='800' minheight='800' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='17' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98312' id='16' param='vert' type-v2='layout-flow' w='99064' x='468' y='844'>
+                <zone fixed-size='280' h='51688' id='3' is-fixed='true' name='Product Category retention % treemap' w='99472' x='211' y='633'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4430' id='8' name='Product Category retention % treemap' pane-specification-id='0' param='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' type-v2='color' w='12196' x='69324' y='1266'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4641' id='13' mode='compact' param='[Parameters].[Parameter 4]' type-v2='paramctrl' w='9362' x='75307' y='51793'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4641' id='12' mode='compact' param='[Parameters].[Parameter 3]' type-v2='paramctrl' w='9362' x='84728' y='51793'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='47996' id='9' is-fixed='true' name='Retention Trend by Product Category' w='98888' x='468' y='51899'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E171164F-C35C-4CEA-ADE3-68D941F2DAA6}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Regional Retention &amp; Customer Activity'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+          <members>
+            <member value='5' />
+            <member value='10' />
+            <member value='15' />
+            <member value='20' />
+          </members>
+        </column>
+        <column caption='Ranking Direction' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+          <calculation class='tableau' formula='&quot;Bottom&quot;' />
+          <members>
+            <member value='&quot;Top&quot;' />
+            <member value='&quot;Bottom&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98312' id='11' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+            <zone h='98312' id='7' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+              <zone h='98312' id='5' type-v2='layout-basic' w='99156' x='422' y='844' />
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='8017' id='8' name='Retention % per State' pane-specification-id='0' param='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' type-v2='color' w='8192' x='71562' y='1055' />
+        <zone h='55696' id='3' name='Retention % per State' w='99525' x='106' y='527' />
+        <zone h='43354' id='9' name='Aquisition vs Active Customer by State' w='99894' x='0' y='56329' />
+        <zone h='4641' id='12' mode='compact' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='9345' x='73442' y='56540' />
+        <zone h='4641' id='13' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='9345' x='61880' y='56435' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='800' minheight='800' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='17' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98312' id='16' param='vert' type-v2='layout-flow' w='99064' x='468' y='844'>
+                <zone fixed-size='280' h='55696' id='3' is-fixed='true' name='Retention % per State' w='99525' x='106' y='527'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8017' id='8' name='Retention % per State' pane-specification-id='0' param='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' type-v2='color' w='8192' x='71562' y='1055'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='43354' id='9' is-fixed='true' name='Aquisition vs Active Customer by State' w='99894' x='0' y='56329'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4641' id='13' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='9345' x='61880' y='56435'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4641' id='12' mode='compact' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='9345' x='73442' y='56540'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{CE3B0176-551A-47DA-891C-677F665E2D91}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Retention Heatmap and Trend over time'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+          <members>
+            <member value='5' />
+            <member value='10' />
+            <member value='15' />
+            <member value='20' />
+          </members>
+        </column>
+        <column caption='Ranking Direction' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Bottom&quot;'>
+          <calculation class='tableau' formula='&quot;Bottom&quot;' />
+          <members>
+            <member value='&quot;Top&quot;' />
+            <member value='&quot;Bottom&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98312' id='12' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+            <zone h='98312' id='10' type-v2='layout-basic' w='99156' x='422' y='844'>
+              <zone h='98312' id='7' param='horz' type-v2='layout-flow' w='99156' x='422' y='844'>
+                <zone h='98312' id='5' type-v2='layout-basic' w='99156' x='422' y='844' />
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='5274' id='8' name='Retention % Heatmap by State' pane-specification-id='0' param='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' type-v2='color' w='14921' x='73142' y='1266' />
+        <zone h='53586' id='3' name='Retention % Heatmap by State' w='99707' x='117' y='633' />
+        <zone h='45886' id='9' name='Retention % Trend over time by State' w='99590' x='59' y='54008' />
+        <zone h='4641' id='13' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='9362' x='75249' y='54219' />
+        <zone h='4641' id='14' mode='compact' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='9362' x='62961' y='54219' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='800' minheight='800' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98312' id='17' param='vert' type-v2='layout-flow' w='99064' x='468' y='844'>
+                <zone fixed-size='280' h='53586' id='3' is-fixed='true' name='Retention % Heatmap by State' w='99707' x='117' y='633'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='5274' id='8' name='Retention % Heatmap by State' pane-specification-id='0' param='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' type-v2='color' w='14921' x='73142' y='1266'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='45886' id='9' is-fixed='true' name='Retention % Trend over time by State' w='99590' x='59' y='54008'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4641' id='14' mode='compact' param='[Parameters].[Parameter 2]' type-v2='paramctrl' w='9362' x='62961' y='54219'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4641' id='13' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='9362' x='75249' y='54219'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{94424FB8-4564-4E52-8026-5B52F8CA52A8}' />
+    </dashboard>
+    <dashboard name='Understanding Customer Retention Patterns in an E-Commerce Business' type='storyboard'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98312' id='1' param='vert' removable='false' type-v2='layout-flow' w='99156' x='422' y='844'>
+            <zone h='3481' id='3' type-v2='title' w='99156' x='422' y='844' />
+            <zone h='10654' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='99156' x='422' y='4325' />
+            <zone h='84177' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='99156' x='422' y='14979'>
+              <flipboard active-id='4' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='How quickly do customers drop off after their first purchase? ' captured-sheet='Customer Retention Overview' id='1' />
+                  <story-point caption='Which product category drive loyalty and which fail to retain customers? ' captured-sheet='Product Category  Retention Treemap and Trend' id='2'>
+                    <capturedDeltas>
+                      <worksheet name='Retention Trend by Product Category'>
+                        <filter class='categorical' column='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[none:product_category_name:nk]'>
+                          <groupfilter function='level-members' level='[none:product_category_name:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+                        </filter>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
+                  <story-point caption='Where are our most loyal customers located?' captured-sheet='Regional Retention &amp; Customer Activity' id='3'>
+                    <capturedDeltas>
+                      <worksheet name='Aquisition vs Active Customer by State'>
+                        <selection-collection />
+                      </worksheet>
+                      <worksheet name='Retention % per State'>
+                        <style delta-type='added'>
+                          <style-rule element='axis'>
+                            <encoding attr='space' class='0' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Latitude (generated)]' field-type='quantitative' max='672440.52523177722' min='-3979183.6379717696' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                            <encoding attr='space' class='0' field='[federated.0xcz5ss1mksth61eysi8z09dp41t].[Longitude (generated)]' field-type='quantitative' max='4029579.5769994427' min='-15553757.834927866' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                          </style-rule>
+                        </style>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
+                  <story-point caption='How has customer retention evolved over cohorts across regions, and what how does it look over time? ' captured-sheet='Retention Heatmap and Trend over time' id='4' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone flipboard-zone-id='5' forceUpdate='true' h='4536' hidden='true' id='6' story-point-id='1' type-v2='text' w='31071' x='35401' y='13186'>
+          <formatted-text>
+            <run fontsize='10'>Reveals the overall retention curve and cohort behaviour over time.</run>
+          </formatted-text>
+        </zone>
+        <zone flipboard-zone-id='5' h='3165' hidden='true' id='7' story-point-id='2' type-v2='text' w='23464' x='37858' y='13713'>
+          <formatted-text>
+            <run fontalignment='0' fontsize='10'>Compares retention across categories and their trends over time</run>
+          </formatted-text>
+        </zone>
+        <zone flipboard-zone-id='5' h='3165' hidden='true' id='8' story-point-id='3' type-v2='text' w='27911' x='36103' y='13397'>
+          <formatted-text>
+            <run fontalignment='0' fontsize='10'>Maps retention by state and visualizes acquisition vs. active customer trends</run>
+          </formatted-text>
+        </zone>
+        <zone flipboard-zone-id='5' h='3165' id='9' story-point-id='4' type-v2='text' w='30954' x='33528' y='13186'>
+          <formatted-text>
+            <run fontalignment='0' fontsize='10'>Displays retention consistency across months, geographies and their trend over time.</run>
+            <run fontalignment='0'>Æ&#10;</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <simple-id uuid='{C21F0CF5-5FBD-45BF-9A46-ED770599DBE6}' />
+    </dashboard>
+  </dashboards>
+  <windows show-side-pane='false' source-height='72'>
+    <window class='worksheet' name='Cohort Retention'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AA20305F-6872-46CA-A335-38137239059D}' />
+    </window>
+    <window class='worksheet' name='Retention % trend by Year-Quarter'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.18le7w80xj7b0s117zlp11md8lr6].[qr:first_order_month:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{FD4AE7A7-B893-476F-9837-1F03FB313786}' />
+    </window>
+    <window class='worksheet' name='Retention% trend over time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.18le7w80xj7b0s117zlp11md8lr6].[yr:first_order_month:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{13BF0A43-584F-455F-B8DC-0F35CF0C96C0}' />
+    </window>
+    <window class='worksheet' name='Product Category retention % treemap'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0a0ld3o1xu8ovy17cd82s00toa7g].[avg:retention_pct:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{4B8B6F40-5CD6-45D8-AF72-017F6E930A9E}' />
+    </window>
+    <window class='worksheet' name='Retention Trend by Product Category'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 3]' type='parameter' />
+            <card mode='compact' param='[Parameters].[Parameter 4]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{5225B57B-45B0-4C3E-9F32-CC658934235D}' />
+    </window>
+    <window class='worksheet' name='Retention % per State'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5BF9AF81-7383-4272-9938-824304D9453C}' />
+    </window>
+    <window class='worksheet' name='Aquisition vs Active Customer by State'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 2]' type='parameter' />
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{49BC4DCA-A593-4519-B928-C2EDAC109CBE}' />
+    </window>
+    <window class='worksheet' name='Retention % Heatmap by State'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0xcz5ss1mksth61eysi8z09dp41t].[avg:retention_pct:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{946349AB-35BB-4DD0-A727-AA911C3A7650}' />
+    </window>
+    <window class='dashboard' name='Customer Retention Overview'>
+      <viewpoints>
+        <viewpoint name='Cohort Retention'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Retention % trend by Year-Quarter'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Retention% trend over time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='9' />
+      <simple-id uuid='{60A55F7A-FCD4-4EC7-8EFA-004998DC0F5A}' />
+    </window>
+    <window class='dashboard' name='Product Category  Retention Treemap and Trend'>
+      <viewpoints>
+        <viewpoint name='Product Category retention % treemap'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Retention Trend by Product Category'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='9' />
+      <simple-id uuid='{8255237C-C431-4581-A061-A82B56BBEC5D}' />
+    </window>
+    <window class='dashboard' name='Regional Retention &amp; Customer Activity'>
+      <viewpoints>
+        <viewpoint name='Aquisition vs Active Customer by State'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Retention % per State'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='13' />
+      <simple-id uuid='{9EA48AEF-8FCA-4189-8174-46F8DBA2C071}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Retention Heatmap and Trend over time'>
+      <viewpoints>
+        <viewpoint name='Retention % Heatmap by State'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Retention % Trend over time by State'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='9' />
+      <simple-id uuid='{FE77A238-5BFE-4482-96A1-837F963D6A7E}' />
+    </window>
+    <window class='worksheet' name='Retention % Trend over time by State'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card mode='compact' param='[Parameters].[Parameter 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{5CF1B0DF-CBE6-4DC1-8AAA-B61DB83C7AEF}' />
+    </window>
+    <window class='dashboard' name='Understanding Customer Retention Patterns in an E-Commerce Business'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{F2BCC44D-FC50-4841-BE2A-72C6621982CD}' />
+    </window>
+  </windows>
+</workbook>

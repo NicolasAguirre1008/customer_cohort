@@ -1,0 +1,21 @@
+# ---- OS / Editor junk ----
+.DS_Store
+._*
+Thunmbs.db
+.vscode/
+.idea/
+
+# ---- Pyhton (if any) ----
+__pycache__/ 
+*.pyc
+*.pyo
+
+# ---- Tableau / analytics cache ----
+*.hyper
+*.tde
+*.tdxs
+*.log
+
+# ---- Misc backups ----
+*.bak
+*.tmp
